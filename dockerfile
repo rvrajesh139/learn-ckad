@@ -1,20 +1,20 @@
 # Base image
 FROM ubuntu:latest
 
-# Maintainer
-LABEL version="latest"
-LABEL Maintainer = "rvrajesh139@gmail.com"
+# Label
+LABEL version="1.0"
+LABEL Maintainer="rvrajesh139"
 
 # update the image
 RUN apt-get update
 RUN apt-get upgrade -y
 
-#install nginx
-RUN apt-get install nginx -y
+# install python3
+RUN apt-get install python3 -y
 
 # expose port 
 EXPOSE 80
 
 # start nginx with our container
 
-CMD ["nginx", "-g", "deamon off;"]
+CMD ["python3", "-g", "deamon off;"]
