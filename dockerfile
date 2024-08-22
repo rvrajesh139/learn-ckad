@@ -12,6 +12,9 @@ RUN apt-get upgrade -y
 # install python3
 RUN apt-get install python3 -y
 
+# Set the working directory in the container to /usr/src/app
+WORKDIR /usr/src/app
+
 #copy
 COPY . /usr/src/app
 
