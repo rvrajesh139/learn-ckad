@@ -1,20 +1,16 @@
 # Base image
-FROM ubuntu:latest
+FROM python:3.9
 
 # Maintainer
 LABEL version="latest"
-LABEL Maintainer = "rvrajesh139@gmail.com"
+LABEL Maintainer="rvrajesh139@gmail.com"
 
 # update the image
 RUN apt-get update
 RUN apt-get upgrade -y
 
-#install nginx
-RUN apt-get install nginx -y
+# add python file to root dir
+ADD run.py /
 
-# expose port 
-EXPOSE 80
-
-# start nginx with our container
-
-CMD ["nginx", "-g", "deamon off;"]
+# run python  with our container
+CMD ["python3", "./run.py"]
