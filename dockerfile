@@ -1,5 +1,5 @@
 # Base image
-FROM ubuntu:latest
+FROM python:latest
 
 # Label
 LABEL version="1.0"
@@ -9,18 +9,8 @@ LABEL Maintainer="rvrajesh139"
 RUN apt-get update
 RUN apt-get upgrade -y
 
-# install python3
-RUN apt-get install python3 -y
-
-# Set the working directory in the container to /usr/src/app
-WORKDIR /usr/src/app
-
-#copy
-COPY . /usr/src/app
-
-# expose port 
-EXPOSE 80
+#add python code
+ADD test.py /
 
 # start nginx with our container
-
-CMD ["python3", "test.py"]
+CMD ["python3", "./test.py"]
