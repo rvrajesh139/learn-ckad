@@ -12,9 +12,12 @@ RUN apt-get upgrade -y
 # install python3
 RUN apt-get install python3 -y
 
+#copy
+COPY . /usr/src/app
+
 # expose port 
 EXPOSE 80
 
 # start nginx with our container
 
-CMD ["python3", "-g", "deamon off;"]
+CMD ["python3", "test.py"]
